@@ -1,0 +1,4 @@
+(executable
+ (public_name ETL)
+ (name main)
+ (libraries ETL))
