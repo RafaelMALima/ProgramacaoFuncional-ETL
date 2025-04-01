@@ -1,2 +1,5 @@
 (library
- (name ETL))
+ (name lib)
+ (modules helper impure)
+ (libraries curl sqlite3))
+

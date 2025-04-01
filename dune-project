@@ -20,7 +20,7 @@
  (name ETL)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml)
+ (depends ocaml ocurl sqlite3)
  (tags
   ("add topics" "to describe" your project)))
 

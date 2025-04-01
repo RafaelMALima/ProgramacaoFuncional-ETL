@@ -1,2 +1,4 @@
 (test
- (name test_ETL))
+ (name test_ETL)
+ (modules test_ETL)
+ (libraries lib ounit2))
