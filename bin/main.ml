@@ -281,10 +281,17 @@ let joined_records_to_strlist recs =
 (* Start of program*)
 
 (*Load data from the CSVs into lists of records*)
+(*loading from local files*
 let order_records = Impure.read_csv "order.csv"
   |> convert_to_recordlist convert_order
 
 let orderItem_records = Impure.read_csv "order_item.csv"
+  |> convert_to_recordlist convert_orderItem
+*)
+let order_records = Impure.read_csv_from_http "https://raw.githubusercontent.com/RafaelMALima/ProgramacaoFuncional-ETL/refs/heads/main/order.csv"
+  |> convert_to_recordlist convert_order
+
+let orderItem_records = Impure.read_csv_from_http "https://raw.githubusercontent.com/RafaelMALima/ProgramacaoFuncional-ETL/refs/heads/main/order_item.csv"
   |> convert_to_recordlist convert_orderItem
 
 
@@ -301,3 +308,8 @@ let processed_joined_records = process_joined_records filter_records unique_ids
 
 let content = joined_records_to_strlist processed_joined_records |> List.append ["order_id,total_amount,total_taxes\n"] ;;
 Impure.write_csv "output.csv" content
+
+let list_of_str_of_str = joined_records_to_strlist processed_joined_records |> List.map (fun s -> String.split_on_char ',' s)
+let a = Impure.open_sqlite_db "output";;
+let _res = Impure.write_output_to_sqlite a list_of_str_of_str
+let _ = Impure.close_sql_db a
