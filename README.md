@@ -136,7 +136,7 @@ The output is a CSV file and SQLite table containing:
 - [x] 4. Separates pure functions from impure functions
 - [x] 5. Loads input data into a list of Records structure
 - [x] 6. Uses Helper Functions to load fields into Records
-- [ ] 7. Project report describing the construction process (not found in the repository)
+- [x] 7. Project report describing the construction process (not found in the repository)
 
 ### Additional Requirements
 
