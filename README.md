@@ -178,4 +178,4 @@ let a = Impure.open_sqlite_db "output"
 let _res = Impure.write_output_to_sqlite a list_of_str_of_str
 ```
 
-Generated with assistance of AI tools
+README file generated with assistance of AI tools
